@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<title>Title</title>
+</head>
+<body>
+    <form action="" method="post" name="myform" onsubmit="return validateForm()">
+    Name
+        <input type="text" name="name"><br>
+    Password
+        <input type="password" name="password" id=""><br>
+        <input type="submit" value="Register">
+    
+    </form>
+
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+<script>
+    function validateForm() {
+        var name=document.myform.name.value;
+        var password=document.myform.password.value;
+
+        if (name==null || name=="") {
+            alert("Name cannot be blank");
+            return false;
+        }else if (password.length<6) {
+            alert("Password must be atleast 6 characters long.");
+            return false;
+        }
+    }
+</script>
+
+</body>
+</html>

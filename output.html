@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h1>My First Web Page</h1>
+    <p>My first paragraph.</p>
+
+    <button type="button" onclick="xyz()">Try it</button>
+    <button type="button" onclick="xyy()">Try this</button>
+    <div id="demo"></div>
+</body>
+<script>
+    function xyz() {
+        document.getElementById("demo").innerHTML = `<form action="">
+        <table border="1px" cellpadding="5" cellspacing="0" width="240">
+            <tr>
+                <td>Gender</td> <br>
+                <td><input type="radio" name="Gender" value="male">Male <input type="radio" name="Gender" value="female">Female</td> 
+                <!-- Keep name same and value different. 
+                This will help check only one option at a time. -->
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" name=""></td>
+            </tr>
+            <tr>
+                <td>Phone</td>
+                <td><input type="text" name=""></td>
+            </tr>
+            <tr>
+                <td>Country</td>
+                <td>
+                	<select>
+                		<option>India</option>
+                		<option>USA</option>
+                		<option>Australia</option>
+                		<option>Japan</option>
+                		<option>France</option>
+                		<option>Israel</option>
+                		<option>China</option>
+                		<option>New Zealand</option>
+                		<option>England</option>
+                		<option>Spain</option>
+                	</select>
+                </td>
+            </tr>
+            <tr>
+            	<td><button type="button">Save</button></td>
+            </tr>
+            <tr>
+            	<td>Address</td>
+            	<td><textarea cols="40" rows="4"></textarea></td>
+            </tr>
+            
+        </table>
+        	<tr>
+            	<td>Courses</td>
+            	<td><input type="checkbox" name="course" value="php">PHP</td>
+            	<td><input type="checkbox" name="course" value="C++">C++</td>
+            	<td><input type="checkbox" name="course" value="java">Java</td>
+            	<td><input type="checkbox" name="course" value="SQL">SQL</td>
+            </tr> <br>
+            Photo:
+            <input type="file" name=""> <br>
+            Password:
+            <input type="password" name=""><br>
+            <input type="submit" name="submit" value="submit"><br>
+            <input type="reset" name="reset" value="reset">
+    </form>`;
+    };
+
+    function xyy() {
+        document.getElementById("demo").innerHTML = 6 + 6;
+    };
+</script>
+
+</html>

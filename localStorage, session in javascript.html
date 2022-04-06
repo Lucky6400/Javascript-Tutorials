@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // Local Storage values stay until we delete them.
+    let arr = ['Lux', 'Dove', 'Dettol'];
+    // localStorage.setItem('Soap',arr); // This will return a string.
+    localStorage.setItem('Soap', JSON.stringify(arr)); // This will return the values 
+    localStorage.setItem('Name', 'Lucky'); // Value is assigned to the key.
+    localStorage.setItem('Name2', 'Jain');
+    // localStorage.clear(); Clears the entire localStorage.
+    localStorage.removeItem('Name'); // Removes 'Name' key.
+    let name = localStorage.getItem('Name2'); // This will retrieve the value assigned to the key 'Name2'.
+    let soap = JSON.parse(localStorage.getItem('Soap')); // By the uyse of JSON.parse(); the key will return an array.
+    console.log(name); // This will print the value assigned to the key 'Name'.
+    console.log(soap);
+
+    // Following values are stored in session storage. This gets cleared as soon as we exit the browser.
+    sessionStorage.setItem('sessionSoap', JSON.stringify(arr));
+    sessionStorage.setItem('sessionName', 'sLucky');
+    sessionStorage.setItem('sessionName2', 'sJain');
+</script>
+
+</html>

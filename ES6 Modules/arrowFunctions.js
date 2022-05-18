@@ -6,3 +6,5 @@ console.log(x(3, 2));
 // You don't need the function keyword, the return keyword, and the curly brackets.
 
 // Arrow functions do not get 'this' keyword.
+
+// Arrow functions cannot be called before declaration.

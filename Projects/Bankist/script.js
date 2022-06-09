@@ -134,24 +134,48 @@ const updateUI = (account) => {
   calcSummary(account);
 }
 
+const logoutTimer = () => {
+
+  // setting time to 5 minutes
+
+  let time = 300; // seconds
+
+  // calling timer every second
+  const timer = setInterval(() => {
+    const min = String(Math.floor(time / 60)).padStart(2, 0);
+    labelTimer.textContent = `${min}:${String(time % 60).padStart(2,0)}`;
+    time--;
+  }, 1000)
+
+  // when 0, logout...
+  if (time === 0) {
+    clearInterval(timer);
+    labelWelcome.textContent = `Login to get started`;
+    containerApp.style.opacity = 0;
+  }
+}
+
 // Login Functionality starts
 let currentUser;
-  btnLogin.addEventListener("click", (e) => {
-    e.preventDefault();
-    currentUser = accounts.find(account => account.username === inputLoginUsername.value);
-    // console.log(currentUser);
-    if (currentUser?.pin === Number(inputLoginPin.value)) {
-      console.log('logged in successfully');
-      labelWelcome.textContent = `Welcome again ${currentUser.owner.split(' ')[0]}`;
-      containerApp.style.opacity = 1;
+btnLogin.addEventListener("click", (e) => {
+  e.preventDefault();
+  currentUser = accounts.find(account => account.username === inputLoginUsername.value);
+  // console.log(currentUser);
+  if (currentUser?.pin === Number(inputLoginPin.value)) {
+    console.log('logged in successfully');
+    labelWelcome.textContent = `Welcome again ${currentUser.owner.split(' ')[0]}`;
+    containerApp.style.opacity = 1;
 
-      updateUI(currentUser);
+    updateUI(currentUser);
 
-    } else {
-      console.log('Invalid Credentials');
-    }
-    inputLoginUsername.value = inputLoginPin.value = '';
-  });
+  } else {
+    console.log('Invalid Credentials');
+  }
+  inputLoginUsername.value = inputLoginPin.value = '';
+
+  logoutTimer();
+
+});
 // Login Functionality ends
 
 // Transfer functionality starts
@@ -180,22 +204,22 @@ btnLoan.addEventListener('click', (e) => {
 
   const amount = Number(inputLoanAmount.value);
 
-  if(amount > 0 &&
-    currentUser.movements.some((movement) => (movement >= amount/10))
-    ){
-      currentUser.movements.push(amount);
-      updateUI(currentUser);
-    }
+  if (amount > 0 &&
+    currentUser.movements.some((movement) => (movement >= amount / 10))
+  ) {
+    currentUser.movements.push(amount);
+    updateUI(currentUser);
+  }
 })
 
 // close account
 btnClose.addEventListener('click', (e) => {
   e.preventDefault();
 
-  if(
-  inputCloseUsername.value === currentUser.username &&
-  Number(inputClosePin.value) === currentUser.pin
-  ){
+  if (
+    inputCloseUsername.value === currentUser.username &&
+    Number(inputClosePin.value) === currentUser.pin
+  ) {
     const indexOfCurrentUser = accounts.findIndex(account => account.username === currentUser.username)
     // delete account
     accounts.splice(indexOfCurrentUser, 1);
@@ -212,4 +236,4 @@ btnSort.addEventListener('click', (e) => {
   e.preventDefault();
   displayMovements(currentUser.movements, !sorted);
   sorted = !sorted;
-})
+});

@@ -6,6 +6,7 @@ const india = ['Sachin', 'Sehwag', 'Gambhir', 'Dhoni'];
 
 india.push('Uthappa');
 console.log(india);
+console.log(india.push('Yusuf')); // returns 6
 
 //? UNSHIFT method adds an element to the beginning of an array
 

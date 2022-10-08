@@ -1,16 +1,16 @@
 /* The page is NOT responsive. You can implement responsiveness yourself if you wanna have some fun 😃 */
 
 :root {
-    --color-primary: #5ec576;
+    --color-primary: #5e7fc5;
     --color-secondary: #ffcb03;
     --color-tertiary: #ff585f;
-    --color-primary-darker: #4bbb7d;
+    --color-primary-darker: #4b5abb;
     --color-secondary-darker: #ffbb00;
     --color-tertiary-darker: #fd424b;
-    --color-primary-opacity: #5ec5763a;
+    --color-primary-opacity: #5eafc53a;
     --color-secondary-opacity: #ffcd0331;
     --color-tertiary-opacity: #ff58602d;
-    --gradient-primary: linear-gradient(to top left, #39b385, #9be15d);
+    --gradient-primary: linear-gradient(to top left, #397ab3, #5dcfe1);
     --gradient-secondary: linear-gradient(to top left, #ffb003, #ffcb03);
   }
   
@@ -28,9 +28,10 @@
   body {
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
-    color: #444;
+    color: #fff;
     line-height: 1.9;
-    background-color: #f3f3f3;
+    background-color: #001774;
+    scroll-behavior: smooth;
   }
   
   /* GENERAL ELEMENTS */
@@ -109,9 +110,9 @@
     transition: filter 0.5s;
   }
   
-  .lazy-img {
+  /* .lazy-img {
     filter: blur(20px);
-  }
+  } */
   
   /* NAVIGATION */
   .nav {
@@ -132,6 +133,8 @@
   
   .nav__logo {
     height: 4.5rem;
+    width: 4.5rem;
+    object-fit: contain;
     transition: all 0.3s;
   }
   
@@ -173,7 +176,6 @@
   /* HEADER */
   .header {
     padding: 0 3rem;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -181,18 +183,20 @@
   
   .header__title {
     flex: 1;
-  
+    padding-top: 10rem;
     max-width: 115rem;
     display: grid;
     grid-template-columns: 3fr 2fr;
     row-gap: 3rem;
     align-content: center;
-    justify-content: center;
+    justify-content: space-around;
   
     align-items: start;
     justify-items: start;
   }
-  
+  .header__title h1{
+    color: white;
+  }
   h1 {
     font-size: 5.5rem;
     line-height: 1.35;
@@ -207,11 +211,11 @@
     width: 100%;
     grid-column: 2 / 3;
     grid-row: 1 / span 4;
-    transform: translateY(-6rem);
   }
   
   .highlight {
     position: relative;
+    color: black;
   }
   
   .highlight::after {
@@ -223,9 +227,9 @@
     height: 100%;
     width: 100%;
     z-index: -1;
-    opacity: 0.7;
+    
     transform: scale(1.07, 1.05) skewX(-15deg);
-    background-image: var(--gradient-primary);
+    background: white;
   }
   
   /* FEATURES */
@@ -293,7 +297,7 @@
     display: inline-block;
   }
   
-  .operations__tab--1 {
+  /* .operations__tab--1 {
     background-color: var(--color-secondary);
   }
   
@@ -308,7 +312,7 @@
   
   .operations__tab--3:hover {
     background-color: var(--color-tertiary-darker);
-  }
+  } */
   
   .operations__tab--active {
     transform: translateY(-66%);
@@ -320,6 +324,7 @@
     /* JUST PRESENTATIONAL */
     font-size: 1.7rem;
     padding: 2.5rem 7rem 6.5rem 7rem;
+    transition: all 0.5s ease-in-out;
   }
   
   .operations__content--active {
@@ -382,19 +387,21 @@
     /* IN THE END */
     overflow: hidden;
   }
-  
-  .slide {
+  .slider_container{
     position: absolute;
     top: 0;
-    width: 100%;
+    left: 0vw;
+    display: flex;
+    width: max-content;
+    /* transform: translateX(-70vw); */
+    transition: transform 1s;
+  }
+  .slide {
+    width: 70vw;
     height: 50rem;
-  
     display: flex;
     align-items: center;
     justify-content: center;
-  
-    /* THIS creates the animation! */
-    transition: transform 1s;
   }
   
   .slide > img {
@@ -593,7 +600,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     max-width: 60rem;
-    background-color: #f3f3f3;
+    background-color: #000c74;
     padding: 5rem 6rem;
     box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
     z-index: 1000;

@@ -9,4 +9,4 @@ const myPromise = new Promise(function (resolve, reject) {
 });
 
 // consuming the above promise
-myPromise.then(res => console.log(res)).catch(error => console.log(error));
+myPromise.then(res => console.log(res + "resolved")).catch(error => console.log(error + " rejected one"));

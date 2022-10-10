@@ -397,7 +397,7 @@
     transition: transform 1s;
   }
   .slide {
-    width: 70vw;
+    max-width: 100vw;
     height: 50rem;
     display: flex;
     align-items: center;

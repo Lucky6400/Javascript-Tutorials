@@ -11,4 +11,4 @@ const team = new teamIndia('Sehwag', 2); // this will call the constructor funct
 console.log(team) // teamIndia { playerName: 'Sehwag', playerPosition: 2 }
 
 // classes are NOT hoisted
-// classses are executed in strict mode
+// classes are executed in strict mode

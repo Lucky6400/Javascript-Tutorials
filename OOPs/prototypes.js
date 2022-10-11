@@ -8,50 +8,20 @@ function Lucky(playerName, playerType){
     this.playerType = playerType;
 }
 const team = new Lucky('Gautam Gambhir', 'Batsman');
-// 'new' operator creates an empty object instantly.
+const team01 = new Lucky('Virender Sehwag', 'Batsman');
 
 console.log(Lucky.prototype); // {}
 
-Lucky.prototype.playerPosition = function(){
-    console.log(6);
+Lucky.prototype.playerPosition = function(position){
+    console.log(position);
 };
 
-team.playerPosition(); // returns 6
+// below u'll see prototypal inheritance
+team.playerPosition(1); // returns 1
+team01.playerPosition(2) // returns 2
+// as u see, we defined playerposition method to class Lucky and now any object created using it can use it
 console.log(team.playerName);
 console.log(team.playerType);
 console.log(team.__proto__); // { playerPosition: [Function (anonymous)] }
 
-// Prototypes
-console.log(Person.prototype);
-Person.prototype.calcAge = function () {
-  console.log(2037 - this.birthYear);
-};
-jonas.calcAge();
-matilda.calcAge();
-console.log(jonas.__proto__);
-console.log(jonas.__proto__ === Person.prototype);
-console.log(Person.prototype.isPrototypeOf(jonas));
-console.log(Person.prototype.isPrototypeOf(matilda));
-console.log(Person.prototype.isPrototypeOf(Person));
-// .prototyeOfLinkedObjects
-Person.prototype.species = 'Homo Sapiens';
-console.log(jonas.species, matilda.species);
-console.log(jonas.hasOwnProperty('firstName'));
-console.log(jonas.hasOwnProperty('species'));
-///////////////////////////////////////
-// Prototypal Inheritance on Built-In Objects
-console.log(jonas.__proto__);
-// Object.prototype (top of prototype chain)
-console.log(jonas.__proto__.__proto__);
-console.log(jonas.__proto__.__proto__.__proto__);
-console.dir(Person.prototype.constructor);
-const arr = [3, 6, 6, 5, 6, 9, 9]; // new Array === []
-console.log(arr.__proto__);
-console.log(arr.__proto__ === Array.prototype);
-console.log(arr.__proto__.__proto__);
-Array.prototype.unique = function () {
-  return [...new Set(this)];
-};
-console.log(arr.unique());
-const h1 = document.querySelector('h1');
-console.dir(x => x + 1);
+console.log(Lucky.prototype.isPrototypeOf(team01))

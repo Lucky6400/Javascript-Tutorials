@@ -11,7 +11,7 @@ const PersonProto = {
     },
 };
 const steven = Object.create(PersonProto);
-console.log(steven);
+console.log(steven); // returns an empty object but in the prototype we have it's methods
 steven.name = 'Steven';
 steven.birthYear = 2002;
 steven.calcAge();

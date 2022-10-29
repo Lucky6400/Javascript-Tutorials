@@ -37,17 +37,17 @@ navigator?.geolocation?.getCurrentPosition(function (position) {
         mapEvent = e;
         form.classList.remove('hidden')
         let { lat, lng } = e.latlng;
-        // console.log(lat, lng);
+        console.log(lat, lng);
 
-        // L.marker([lat, lng]).addTo(map)
-        // .bindPopup(L.popup({
-        //     maxWidth: 250,
-        //     maxHeight: 50,
-        //     className: inputType.value === 'running' ? 'running-popup': 'cycling-popup',
-        //     autoClose: false,
-        //     closeOnClick: false
-        // })).setPopupContent(inputType.value === 'running' ? 'Running': 'Cycling')
-        // .openPopup();
+        L.marker([lat, lng]).addTo(map)
+        .bindPopup(L.popup({
+            maxWidth: 250,
+            maxHeight: 50,
+            className: inputType.value === 'running' ? 'running-popup': 'cycling-popup',
+            autoClose: false,
+            closeOnClick: false
+        })).setPopupContent(inputType.value === 'running' ? 'Running': 'Cycling')
+        .openPopup();
     })
 }, function () {
     alert('Geolocation is not available!');

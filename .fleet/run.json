@@ -1,0 +1,9 @@
+{
+    "configurations": [
+        {
+            "type": "command",
+            "name": "node",
+            "program": ".js",
+        },
+    ]
+}

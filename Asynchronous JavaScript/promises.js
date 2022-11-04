@@ -18,8 +18,7 @@ const getData = (country) => {
     fetch(`https://restcountries.com/v2/name/${country}`)
     .then((response) => response.json(), (error) => console.log(error))
     .then((data) => {
-        console.log(data[1]);
-        console.log(data[1].borders[0])
+        console.log(data)
     })
     .catch((error) => console.log(error))
     .finally(() => {

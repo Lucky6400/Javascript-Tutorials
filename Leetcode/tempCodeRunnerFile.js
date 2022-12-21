@@ -1,5 +1,1 @@
-if(num1===num2){
-        //     return i;
-        // } else {
-        //     return -1;
-        // }
+sortedArr.length / 2

@@ -1,4 +1,5 @@
-// Write a function called maxSubArraySum which accepts an array of integers and a number called n. The function should calculate the maximum sum of n consecutive elements in the array.
+// Write a function called maxSubArraySum which accepts an array of integers and a number called n. The function
+// should calculate the maximum sum of n consecutive elements in the array.
 
 
 function maxSubarraySum(arr, num) {
@@ -10,7 +11,7 @@ function maxSubarraySum(arr, num) {
     }
     tempSum = maxSum;
     for (let i = num; i < arr.length; i++) {
-        // in line 14, we are subtracting previous value and adding next value
+        // in line 15, we are subtracting previous value and adding next value
         tempSum = tempSum - arr[i - num] + arr[i];
         console.log(tempSum);
         maxSum = Math.max(maxSum, tempSum);

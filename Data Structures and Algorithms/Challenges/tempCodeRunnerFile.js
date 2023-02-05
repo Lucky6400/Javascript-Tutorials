@@ -1,0 +1,1 @@
+ // newObj[key] = obj[key]

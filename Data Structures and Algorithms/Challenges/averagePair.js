@@ -3,41 +3,41 @@ Write a function called averagePair. Given a sorted array of integers and a targ
 */
 
 /** MY METHOD (VERY STUPID😑) */
-function averagePair(array, target){
-  let currentIndex = 0;
+function averagePair(array, target) {
+    let currentIndex = 0;
 
-  while(currentIndex < array.length){
-    let currentValue = array[currentIndex];
-    let nextValue = array.find(item => (item + currentValue)/2 === target);
-    if(nextValue){
-        return true;
-    } else {
-        currentIndex++;
+    while (currentIndex < array.length) {
+        let currentValue = array[currentIndex];
+        let nextValue = array.find(item => (item + currentValue) / 2 === target);
+        if (nextValue) {
+            return true;
+        } else {
+            currentIndex++;
+        }
     }
-  }
-  return false;
+    return false;
 }
 
-console.log(averagePair([1,2,3], 2.5)) // returns true
-console.log(averagePair([-1,0,3,4,5,6], 4.1))
+console.log(averagePair([1, 2, 3], 2.5)) // returns true
+console.log(averagePair([-1, 0, 3, 4, 5, 6], 4.1))
 
 
 /** USING BINARY SEARCH */
-function averagePairEfficient(array, target){
-    if(array.length === 0){
+function averagePairEfficient(array, target) {
+    if (array.length === 0) {
         return false;
     }
 
     let left = 0;
     let right = array.length - 1;
 
-    while(left < right){
-        let average = (array[left] + array[right])/2;
-        if(average === target){
+    while (left < right) {
+        let average = (array[left] + array[right]) / 2;
+        if (average === target) {
             return true;
-        } else if (average > target){
+        } else if (average > target) {
             right--;
-        } else if (average < target){
+        } else if (average < target) {
             left++;
         }
     }

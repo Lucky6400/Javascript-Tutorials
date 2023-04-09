@@ -2,6 +2,8 @@
  * @param {string} s
  * @return {number}
  */
+
+/** I solved it with O(n) time complexity😍 */
 var lengthOfLongestSubstring = function (s) {
     let t = {};
     let longest = 0;
@@ -18,11 +20,10 @@ var lengthOfLongestSubstring = function (s) {
         }
 
         longest = Math.max(longest, Object.keys(t).length);
-        console.log(t)
-    }
+        //console.log(t)
+    };
 
-    return longest
-
+    return longest;
 };
 
 console.log(lengthOfLongestSubstring("pwwkew"))

@@ -1,5 +1,5 @@
 /** Time Complexity --> O(nlogn) 
- *  Space Complexity --> 
+ *  Space Complexity --> O(logn)
  */
 function QuickSort(arr, left = 0, right = arr.length - 1) {
 
@@ -20,12 +20,11 @@ function QuickSort(arr, left = 0, right = arr.length - 1) {
 
 console.log(QuickSort([4, 8, 2, 1, 5, 7, 6, 3]));
 
-
 function pivot(array, start = 0, end = array.length + 1) {
     let pivot = array[start];
     let swapIndex = start;
 
-    for (let i = start + 1; i < array.length; i++) {
+    for (let i = start + 1; i <= end; i++) {
         if (pivot > array[i]) {
             swapIndex++;
             //swapping
@@ -36,5 +35,3 @@ function pivot(array, start = 0, end = array.length + 1) {
     [array[start], array[swapIndex]] = [array[swapIndex], array[start]];
     return swapIndex;
 }
-
-//console.log(pivot([4, 8, 2, 1, 5, 7, 6, 3]))

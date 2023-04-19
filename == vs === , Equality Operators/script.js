@@ -16,5 +16,5 @@ if(diegoCosta === 19) console.log('Chelsea Player') // This will check whether t
 
 */
 
-console.log(19 === '19'); // returns false (very strict like a Dad)
-console.log(19 == '19'); // returns true (very loose like a mother)
+console.log(19 === '19'); // returns false 
+console.log(19 == '19'); // returns true 

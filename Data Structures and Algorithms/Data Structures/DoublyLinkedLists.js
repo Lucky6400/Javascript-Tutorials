@@ -113,14 +113,52 @@ class DoublyLinkedList {
         }
     }
 
+    /** insert a node at specific position*/
+    insert(key, value) {
+        if (key < 0 || key > this.length) return false;
 
+        if (key === 0) return !!this.unshift(value);
+        if (key === this.length) return !!this.push(value);
+
+        let node = new Node(value);
+
+        let prevNode = this.get(key - 1);
+
+        prevNode.next = node;
+        node.prev = prevNode;
+        node.next = prevNode.next;
+        prevNode.next.prev = node;
+        this.length++;
+        return true;
+    }
+
+    /** remove from a specific position */
+    remove(key) {
+        if (key < 0 || key >= this.length) return undefined;
+
+        if (key === 0) return this.shift();
+        if (key === this.length - 1) return this.pop();
+
+        let nodeToRemove = this.get(key);
+
+        let nextNode = nodeToRemove.next;
+        let prevNode = nodeToRemove.prev;
+        prevNode.next = nextNode;
+        nextNode.prev = prevNode;
+        nodeToRemove.next = null;
+        nodeToRemove.prev = null;
+        this.length--;
+        return nodeToRemove;
+    }
 }
 
 let dll = new DoublyLinkedList();
 dll.push("First push");
 dll.push("Second push");
 dll.push("Third push");
-dll.push("Fourth push")
+dll.push("Fourth push");
 dll.unshift("Zeroth Push");
-console.log(dll.get(3))
-console.log(dll)
+dll.insert(1, "In between Push");
+dll.remove(1);
+// console.log(dll.get(3))
+console.log(dll);

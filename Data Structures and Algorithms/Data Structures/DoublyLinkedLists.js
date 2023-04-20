@@ -1,3 +1,13 @@
+/*
+ * 
+ * Big O
+ * Insertion --> O(1)
+ * Removal --> O(1)
+ * Searching --> O(n)
+ * Access --> O(n)
+ * 
+ */
+
 class Node {
     constructor(val) {
         this.val = val;
@@ -150,6 +160,30 @@ class DoublyLinkedList {
         this.length--;
         return nodeToRemove;
     }
+
+    reverse() {
+        // If list is empty or only has 1 node, just return the list
+        if (this.length < 2) return this;
+
+        let currentNode = this.head;
+        this.head = this.tail;
+        this.tail = currentNode;
+
+        let currentPrev = null, currentNext = null
+
+        // Traverse while there is a current node
+        while (currentNode) {
+            currentPrev = currentNode.prev;
+            currentNext = currentNode.next;
+
+            currentNode.prev = currentNext;
+            currentNode.next = currentPrev;
+
+            currentNode = currentNext;
+        }
+
+        return this;
+    }
 }
 
 let dll = new DoublyLinkedList();
@@ -161,4 +195,4 @@ dll.unshift("Zeroth Push");
 dll.insert(1, "In between Push");
 dll.remove(1);
 // console.log(dll.get(3))
-console.log(dll);
+console.log(dll.reverse());

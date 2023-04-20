@@ -161,6 +161,7 @@ class DoublyLinkedList {
         return nodeToRemove;
     }
 
+    /** reverse the list */
     reverse() {
         // If list is empty or only has 1 node, just return the list
         if (this.length < 2) return this;

@@ -42,7 +42,7 @@ class Graph {
 
     removeVertex(vertexToRemove) {
         if (!this.adjacencyList[vertexToRemove]) return;
-    
+
         // remove the vertex from the adjacency list of each vertex it's connected to
         const vertices = Object.keys(this.adjacencyList);
         for (let i = 0; i < vertices.length; i++) {
@@ -52,19 +52,94 @@ class Graph {
                 this.adjacencyList[vertex].splice(index, 1);
             }
         }
-    
+
         // remove the vertex and its adjacency list from the graph
         delete this.adjacencyList[vertexToRemove];
     }
 
-    
-    
+
+    // Graph traversals
+    dfs(vertex) {
+        let results = [];
+        let visited = {};
+
+        // need arrow func only, otherwise this keyword will fuck around😑
+        const helper = (vertex) => {
+            if (!vertex) return;
+
+            visited[vertex] = true;
+            results.push(vertex);
+
+            let arr = this.adjacencyList[vertex];
+            for (let i = 0; i < arr.length; i++) {
+                if (!visited[arr[i]]) {
+                    helper(arr[i]);
+                }
+            }
+        }
+        helper(vertex);
+
+        return results;
+    }
+
+    bfs(vertex) {
+        let queue = [vertex];
+        let visited = [];
+        let visitedObj = {
+            [vertex]: true
+        };
+
+        while (queue.length > 0) {
+            let current = queue.shift();
+            visited.push(current);
+
+            let arr = this.adjacencyList[current];
+            for (let i = 0; i < arr.length; i++) {
+                if (!visitedObj[arr[i]]) {
+                    visitedObj[arr[i]] = true;
+                    queue.push(arr[i]);
+                }
+            }
+        }
+
+        return visited;
+    }
 }
 
 const graph = new Graph();
-graph.addVertex("Mumbai");
-graph.addEdge("Mumbai", "Pune")
-graph.addEdge("Thane", "Pune")
-//graph.removeEdge("Mumbai", "Pune")
-graph.removeVertex("Mumbai");
-console.log(graph)
+graph.addVertex("Vidisha");
+graph.addVertex("Bhopal");
+graph.addVertex("Indore");
+graph.addVertex("Ganjbasoda");
+graph.addVertex("Bakhleta");
+graph.addVertex("Gulabganj");
+graph.addEdge("Vidisha", "Bhopal");
+graph.addEdge("Vidisha", "Indore");
+graph.addEdge("Bhopal", "Ganjbasoda");
+graph.addEdge("Indore", "Bakhleta");
+graph.addEdge("Ganjbasoda", "Bakhleta");
+graph.addEdge("Ganjbasoda", "Gulabganj");
+graph.addEdge("Bakhleta", "Gulabganj");
+console.log(graph.dfs("Vidisha"));
+console.log(graph.bfs("Vidisha"));
+
+/*
+above log returns [
+  'Vidisha',
+  'Bhopal',
+  'Ganjbasoda',
+  'Bakhleta',
+  'Indore',
+  'Gulabganj'
+]
+*/
+
+// ~Graph diagram
+
+//            Vidisha
+//        /            \
+//       Bhopal     Indore
+//       |              |
+//   Ganjbasoda --- Bakhleta
+//        \            /
+//           Gulabganj

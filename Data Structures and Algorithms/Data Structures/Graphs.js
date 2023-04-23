@@ -63,7 +63,7 @@ class Graph {
         let results = [];
         let visited = {};
 
-        // need arrow func only, otherwise this keyword will fuck around😑
+        // need arrow func only, otherwise 'this' keyword will fuck around😑
         const helper = (vertex) => {
             if (!vertex) return;
 
@@ -143,3 +143,24 @@ above log returns [
 //   Ganjbasoda --- Bakhleta
 //        \            /
 //           Gulabganj
+
+
+class WeightedGraph {
+    constructor() {
+        this.adjacencyList = {};
+    }
+
+    //add a vertex
+    addVertex(vertex) {
+        if (!this.adjacencyList[vertex]) this.adjacencyList[vertex] = [];
+    }
+
+    //add an edge
+    addEdge(vertex1, vertex2, weight) {
+        if (!this.adjacencyList[vertex1]) this.adjacencyList[vertex1] = [];
+        if (!this.adjacencyList[vertex2]) this.adjacencyList[vertex2] = [];
+        this.adjacencyList[vertex1].push({ node: vertex2, weight });
+        this.adjacencyList[vertex2].push({ node: vertex1, weight });
+    }
+
+}

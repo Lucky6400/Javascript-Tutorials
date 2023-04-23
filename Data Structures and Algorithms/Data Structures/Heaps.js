@@ -1,9 +1,13 @@
 /*
-In heap, value of parent is always greater than that of child.
-Binary Heaps are used to implement Priority Queues, which are very commonly used data structures.
+In heap, value of parent is always greater than that of 
+child.
+Binary Heaps are used to implement Priority Queues, which 
+are very commonly used data structures.
 
 ?Difference b/w Heaps and Trees
-Both heaps and trees are data structures used to organize and store elements in a hierarchical way. However, there are some key differences between them:
+Both heaps and trees are data structures used to organize 
+and store elements in a hierarchical way. However, there are 
+some key differences between them:
 
 Structure: A tree is a hierarchical data structure 
 consisting of nodes connected by edges, where each node has 
@@ -15,7 +19,8 @@ Ordering: A tree can be ordered or unordered, depending on
 the specific application. In an ordered tree, the nodes are 
 arranged in a specific order (e.g., binary search trees). In 
 contrast, heaps are always ordered, either in the form of a 
-min heap or a max heap, depending on the specific implementation.
+min heap or a max heap, depending on the specific 
+implementation.
 
 Shape: Trees can have various shapes and depths, depending 
 on the specific arrangement of nodes and edges. In contrast, 
@@ -24,8 +29,14 @@ tree, meaning that every level of the tree is completely
 filled, except possibly the last level, which is filled from 
 left to right.
 
-Usage: Trees are used for various purposes, such as organizing data for efficient searching or sorting, representing hierarchical relationships, or modeling decision-making processes. Heaps, on the other hand, are typically used for efficient priority queue operations, such as finding the minimum or maximum element, inserting or deleting elements, or sorting elements in ascending or descending order.
-
+Usage: Trees are used for various purposes, such as 
+organizing data for efficient searching or sorting, 
+representing hierarchical relationships, or modeling 
+decision-making processes. Heaps, on the other hand, are 
+typically used for efficient priority queue operations, such 
+as finding the minimum or maximum element, inserting or 
+deleting elements, or sorting elements in ascending or 
+descending order.
 
 Big O (it's incredible😍)
 Insertion -> O(logN)

@@ -56,7 +56,7 @@ class WeightedGraph {
             if (smallest === toVertex) {
                 // console.log(distances);
                 // console.log(previous);
-                /// build up the path to return at the end
+                // build up the path to return at the end
                 while(previous[smallest]) {
                     path.push(smallest);
                     smallest = previous[smallest];

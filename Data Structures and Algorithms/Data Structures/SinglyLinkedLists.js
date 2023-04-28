@@ -182,6 +182,24 @@ class SinglyLinkedList {
         return this;
 
     }
+
+    rotate(num) {
+        num = num % this.length;
+        if(num === 0 || num > this.length) return this;
+        
+        if(num < 0) num = num + this.length;
+        
+        let current = this.head;
+        let count = 0;
+        
+        while(count < num) {
+            this.push(current.val);
+            this.shift();
+            current = current.next;
+            count++;
+        }
+        return this;
+    }
 }
 
 let list = new SinglyLinkedList();

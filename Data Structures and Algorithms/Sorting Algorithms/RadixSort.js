@@ -23,13 +23,12 @@ console.log(RadixSort([23, 345, 5467, 12, 2345, 9852]))
 // helper methods for radix sort
 
 function getDigit(number, placeValue) {
-    //returns the digit in number at a given placeValue
+    // returns the digit in number at a given placeValue
     /* 
     example:- getDigit(12345, 0) ==> 5
               getDigit(12345, 1) ==> 4
     */
-
-    return Number(String(number).charAt(number.toString().length - 1 - placeValue))
+    return Math.floor(number / (10 ** placeValue)) % 10;
 }
 
 function getDigitCount(number) {

@@ -121,6 +121,69 @@ class BinarySearchTree {
         return visited;
     }
 
+    findSecondLargest() {
+        if (!this.root) return undefined;
+
+        let current = this.root;
+        let max = this.root.value;
+        let secondMax = this.root.value;
+
+        function helper(node) {
+            if (node.value > max) {
+                secondMax = max;
+                max = node.value;
+            }
+
+            if (node.left) helper(node.left);
+            if (node.right) helper(node.right);
+        }
+
+        helper(current);
+        return secondMax;
+    }
+
+    isBalanced() {
+        let left = this.root.left;
+        let right = this.root.right;
+
+        if (!this.root) return false;
+        if (this.root && !left && !right) return true;
+
+        let leftC = 0;
+        let rightC = 0;
+
+        if (left) {
+            while (left.left || left.right) {
+                if (left.left) {
+                    left = left.left;
+                } else if (left.right) {
+                    left = left.right;
+                }
+                leftC++;
+            }
+        }
+
+        if (right) {
+            while (right.left || right.right) {
+                if (right.left) {
+                    right = right.left
+                } else if (right.right) {
+                    right = right.right;
+                }
+
+                rightC++;
+            }
+        }
+
+
+        let value = leftC - rightC;
+
+        if (value >= 0 && value <= 1) {
+            return true;
+        }
+
+        return false;
+    }
 }
 
 /*

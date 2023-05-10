@@ -58,7 +58,7 @@ class SinglyLinkedList {
         }
 
         while (current.next) {
-            if (current.next.next == null) {
+            if (current.next.next === null) {
                 newTail = current;
                 current = current.next;
             } else {

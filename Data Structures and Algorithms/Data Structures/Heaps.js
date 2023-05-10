@@ -9,27 +9,31 @@ Both heaps and trees are data structures used to organize
 and store elements in a hierarchical way. However, there are 
 some key differences between them:
 
-Structure: A tree is a hierarchical data structure 
+~Structure: 
+A tree is a hierarchical data structure 
 consisting of nodes connected by edges, where each node has 
 zero or more child nodes. A heap is a specialized tree-based 
 data structure that satisfies the heap property, which is a 
 specific ordering condition between parent and child nodes.
 
-Ordering: A tree can be ordered or unordered, depending on
+~Ordering: 
+A tree can be ordered or unordered, depending on
 the specific application. In an ordered tree, the nodes are 
 arranged in a specific order (e.g., binary search trees). In 
 contrast, heaps are always ordered, either in the form of a 
 min heap or a max heap, depending on the specific 
 implementation.
 
-Shape: Trees can have various shapes and depths, depending 
+~Shape: 
+Trees can have various shapes and depths, depending 
 on the specific arrangement of nodes and edges. In contrast, 
 heaps have a specific shape, which is a complete binary 
 tree, meaning that every level of the tree is completely 
 filled, except possibly the last level, which is filled from 
 left to right.
 
-Usage: Trees are used for various purposes, such as 
+~Usage: 
+Trees are used for various purposes, such as 
 organizing data for efficient searching or sorting, 
 representing hierarchical relationships, or modeling 
 decision-making processes. Heaps, on the other hand, are 
@@ -61,20 +65,26 @@ class PriorityQueueMax {
     enqueue(value, priority) {
         let node = new Node(value, priority);
         this.values.push(node);
-        let currentIndex = this.values.length - 1;
-        const element = this.values[currentIndex];
 
+        let currentIndex = this.values.length - 1;
 
         while (currentIndex > 0) {
             let parentIndex = Math.floor((currentIndex - 1) / 2);
-            let parent = this.values[parentIndex];
-            if (element.priority <= parent.priority) break;
-            this.values[parentIndex] = element;
-            this.values[currentIndex] = parent;
-            currentIndex = parentIndex;
+
+            if (this.values[currentIndex].priority > this.values[parentIndex].priority) {
+                // Swap the nodes if necessary
+                [this.values[currentIndex], this.values[parentIndex]] = [this.values[parentIndex], this.values[currentIndex]];
+
+                // Update currentIndex to the parent index
+                currentIndex = parentIndex;
+            } else {
+                // If no swap is needed, break out of the loop
+                break;
+            }
         }
-        return this;
     }
+
+
 
 
     dequeue() {
@@ -102,7 +112,7 @@ class PriorityQueueMax {
             if (leftChildIdx < length) {
                 leftChild = this.values[leftChildIdx];
                 if (leftChild.priority > element.priority) {
-                    swap = leftChildIdx;
+                    swap = leftChildIdx;    
                 }
             }
 

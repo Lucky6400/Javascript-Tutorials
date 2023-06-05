@@ -16,4 +16,4 @@ function InsertionSort(arr) {
     return arr;
 }
 
-console.log(InsertionSort([2, 1, 5, 777, 22, 45, 12]))
+console.log(InsertionSort([2, 1, 5, 777, 22, 45, 12]));

@@ -1,19 +1,30 @@
-function majorityElement(nums, target) {
-    let obj = {};
-    let max = 0;
-    let n = nums.length;
-    for (let i = 0; i < n; i++) {
-        obj[nums[i]] = ++obj[nums[i]] || 1;
-        console.log(nums[i])
+// function transpose(matrix) {
+//     const m = matrix.length;
+//     const n = matrix[0].length;
 
-        if (obj[nums[i]] > (n / 2)) {
-            max = Math.max(max, nums[i])
-        }
+//     // Swap elements in-place between rows and columns
+//     for (let i = 0; i < m; i++) {
+//         [matrix[i][i+1], matrix[i+1][i]] = [matrix[i+1][i], matrix[i][i+1]]; 
+//     }
+
+//     return matrix;
+// }
+
+// const matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+// const transposedMatrix = transpose(matrix);
+// console.log(transposedMatrix);
+
+let numRows = 6;
+let arr = [[1]];
+let count = 1;
+for (let i = 1; i < numRows; i++) {
+    count = count * 11;
+    let newarr = []
+    let str = count.toString()
+    for (let j = 0; j < str.length; j++) {
+        newarr.push(parseInt(str[j]))
     }
-
-    console.log(max)
-
-    return max;
+    arr.push([newarr]);
 }
 
-majorityElement([3, 2, 3])
+console.log(arr)
